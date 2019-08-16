@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Workorder;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,6 +24,17 @@ class WorkorderController extends AbstractController
      */
     public function view(int $id)
     {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $workorderRepository = $entityManager->getRepository(Workorder::class);
+
+        $workorder = $workorderRepository->find($id);
+
+
+        return $this->json([
+            'workorder' => $workorder->getAccountId()
+        ]);
     }
 
 }
