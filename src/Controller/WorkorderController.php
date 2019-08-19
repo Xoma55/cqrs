@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Workorder;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\WorkorderTest;
+use App\Repository\CQRS\Query\WorkorderQuery;
 use Symfony\Component\Routing\Annotation\Route;
 
-class WorkorderController extends AbstractController
+class WorkorderController extends BaseController
 {
     /**
      * @Route("/workorder", name="workorder")
@@ -25,15 +26,15 @@ class WorkorderController extends AbstractController
     public function view(int $id)
     {
 
-        $entityManager = $this->getDoctrine()->getManager();
 
-        $workorderRepository = $entityManager->getRepository(Workorder::class);
+        $workorderQuery = new WorkorderQuery($id);
 
-        $workorder = $workorderRepository->find($id);
 
+        /** @var WorkorderTest $workorder */
+        $workorder = $this->handleMessage($workorderQuery);
 
         return $this->json([
-            'workorder' => $workorder->getAccountId()
+            'workorder' => $workorder->getDateCreate()
         ]);
     }
 

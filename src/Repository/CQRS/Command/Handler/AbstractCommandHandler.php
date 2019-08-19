@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\SQRS\Command\Handler;
+namespace App\Repository\CQRS\Command\Handler;
 
 use App\Entity\WorkorderTest;
 use SfCQRSDemo\Model\Product\ProductRepository;

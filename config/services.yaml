@@ -26,3 +26,13 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+
+    App\Repository\CQRS\Query\Handler\:
+        resource: '../src/Repository/CQRS/Query/Handler'
+        tags: ['messenger.message_handler']
+
+    app.workorder.query.repository:
+        class: App\Repository\CQRS\Model\Workorder\WorkorderQueryRepository
+        arguments:
+            - '@App\Repository\CQRS\Persistence\WorkorderQueryRepository'
+            - '@doctrine.orm.entity_manager'

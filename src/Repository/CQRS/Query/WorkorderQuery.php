@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Repository\SQRS\Query;
+namespace App\Repository\CQRS\Query;
 
 
-class WorkorderQuery
+use App\Interfaces\MessageInterface;
+
+class WorkorderQuery implements MessageInterface
 {
 
     private $id;

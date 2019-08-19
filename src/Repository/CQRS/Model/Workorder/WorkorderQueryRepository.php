@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repository\SQRS\Model\Workorder;
+namespace App\Repository\CQRS\Model\Workorder;
 
 use App\Entity\WorkorderTest;
 
-interface ProductQueryRepository
+interface WorkorderQueryRepository
 {
     public function get(string $id): WorkorderTest;
 

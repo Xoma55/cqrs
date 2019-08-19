@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\SQRS\Command;
+namespace App\Repository\CQRS\Command;
 
 use SfCQRSDemo\Application\Command\AddProductCommand;
 use SfCQRSDemo\Model\Product\Product;
