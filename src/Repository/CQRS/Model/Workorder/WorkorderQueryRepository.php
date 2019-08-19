@@ -17,4 +17,6 @@ interface WorkorderQueryRepository
     public function fetchAll(int $page, int $perPage): array;
 
     public function count(): int;
+
+    public function findAll();
 }

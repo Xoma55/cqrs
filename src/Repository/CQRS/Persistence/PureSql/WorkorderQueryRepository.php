@@ -35,4 +35,13 @@ class WorkorderQueryRepository implements WorkorderQueryInterface
         // TODO: Implement count() method.
     }
 
+    public function findAll()
+    {
+        $stmt = $this->connection->prepare('SELECT * FROM `workorder_test`');
+        $stmt->execute();
+
+        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $data;
+    }
 }

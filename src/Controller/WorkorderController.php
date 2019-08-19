@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Workorder;
 use App\Entity\WorkorderTest;
+use App\Repository\CQRS\Query\WorkorderListQuery;
 use App\Repository\CQRS\Query\WorkorderQuery;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -36,6 +37,24 @@ class WorkorderController extends BaseController
         $serializer = SerializerBuilder::create()->build();
 
         return $this->json(json_decode($serializer->serialize($workorder, 'json'), true));
+    }
+
+    /**
+     * @Route("/workorder/list", methods={"GET"})
+     */
+    public function list()
+    {
+
+        $workorderListQuery = new WorkorderListQuery();
+
+        $workorderList = $this->handleMessage($workorderListQuery);
+
+
+        /** @var Serializer $serializer */
+        $serializer = SerializerBuilder::create()->build();
+
+        return $this->json(json_decode($serializer->serialize($workorderList, 'json'), true));
+
     }
 
 }
