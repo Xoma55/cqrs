@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Workorder;
+use App\Entity\WorkorderTest;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Workorder|null find($id, $lockMode = null, $lockVersion = null)
- * @method Workorder|null findOneBy(array $criteria, array $orderBy = null)
- * @method Workorder[]    findAll()
- * @method Workorder[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method WorkorderTest|null find($id, $lockMode = null, $lockVersion = null)
+ * @method WorkorderTest|null findOneBy(array $criteria, array $orderBy = null)
+ * @method WorkorderTest[]    findAll()
+ * @method WorkorderTest[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class WorkorderRepository extends ServiceEntityRepository
+class WorkorderTestRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Workorder::class);
+        parent::__construct($registry, WorkorderTest::class);
     }
 
     // /**
-    //  * @return Workorder[] Returns an array of Workorder objects
+    //  * @return WorkorderTest[] Returns an array of WorkorderTest objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class WorkorderRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Workorder
+    public function findOneBySomeField($value): ?WorkorderTest
     {
         return $this->createQueryBuilder('w')
             ->andWhere('w.exampleField = :val')
