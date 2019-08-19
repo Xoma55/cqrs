@@ -6,7 +6,7 @@ use App\Entity\WorkorderTest;
 
 interface WorkorderQueryRepository
 {
-    public function get(string $id): WorkorderTest;
+    public function get(string $id);
 
     /**
      * @param int $page
