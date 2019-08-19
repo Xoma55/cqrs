@@ -36,7 +36,7 @@ class WorkorderQueryRepository implements WorkorderQueryPort
 
         $workorderRepository = $this->entityManager->getRepository(WorkorderTest::class);
 
-        return $workorderRepository->find($id) ?? new WorkorderTest();
+        return $workorderRepository->find($id) ?? new NullWorkorderTest();
 
     }
 

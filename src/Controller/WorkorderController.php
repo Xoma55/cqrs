@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Workorder;
 use App\Entity\WorkorderTest;
 use App\Repository\CQRS\Query\WorkorderQuery;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Routing\Annotation\Route;
 
 class WorkorderController extends BaseController
@@ -25,17 +27,15 @@ class WorkorderController extends BaseController
      */
     public function view(int $id)
     {
-
-
         $workorderQuery = new WorkorderQuery($id);
-
 
         /** @var WorkorderTest $workorder */
         $workorder = $this->handleMessage($workorderQuery);
 
-        return $this->json([
-            'workorder' => $workorder->getDateCreate()
-        ]);
+        /** @var Serializer $serializer */
+        $serializer = SerializerBuilder::create()->build();
+
+        return $this->json(json_decode($serializer->serialize($workorder, 'json'), true));
     }
 
 }
