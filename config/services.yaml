@@ -31,5 +31,5 @@ services:
         resource: '../src/Repository/CQRS/Query/Handler'
         tags: ['messenger.message_handler']
 
-    #App\Repository\CQRS\Model\Workorder\WorkorderQueryRepository: '@App\Repository\CQRS\Persistence\WorkorderQueryRepository'
-    App\Repository\CQRS\Model\Workorder\WorkorderQueryRepository: '@App\Repository\CQRS\Persistence\PureSql\WorkorderQueryRepository'
+    App\Repository\CQRS\Model\Workorder\WorkorderQueryRepository: '@App\Repository\CQRS\Persistence\WorkorderQueryRepository'
+    #App\Repository\CQRS\Model\Workorder\WorkorderQueryRepository: '@App\Repository\CQRS\Persistence\PureSql\WorkorderQueryRepository'

@@ -40,7 +40,9 @@ class WorkorderQueryRepository implements WorkorderQueryPort
 
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $workorderRepository = $this->entityManager->getRepository(WorkorderTest::class);
+
+        return $workorderRepository->findAll() ?? new NullWorkorderTest();
     }
 
 }
