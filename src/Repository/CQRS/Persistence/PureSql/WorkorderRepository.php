@@ -2,7 +2,6 @@
 
 namespace App\Repository\CQRS\Persistence\PureSql;
 
-use App\Entity\WorkorderTest;
 use App\Repository\CQRS\Model\Workorder\Workorder;
 use App\Repository\CQRS\Model\Workorder\WorkorderRepository as WorkorderInterface;
 use Doctrine\DBAL\Connection;
