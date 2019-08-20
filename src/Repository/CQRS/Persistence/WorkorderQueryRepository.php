@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 class WorkorderQueryRepository implements WorkorderQueryPort
 {
 
-    protected $connection;
     protected $entityManager;
 
 

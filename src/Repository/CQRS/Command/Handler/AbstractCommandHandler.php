@@ -2,16 +2,16 @@
 
 namespace App\Repository\CQRS\Command\Handler;
 
-use App\Entity\WorkorderTest;
-use SfCQRSDemo\Model\Product\ProductRepository;
+
+use App\Repository\CQRS\Model\Workorder\WorkorderRepository;
+
 abstract class AbstractCommandHandler
 {
-    /**
-     * @var WorkorderTest
-     */
-    protected $productRepository;
-    public function __construct(ProductRepository $productRepository)
+
+    protected $repository;
+
+    public function __construct(WorkorderRepository $repository)
     {
-        $this->productRepository = $productRepository;
+        $this->repository = $repository;
     }
 }
