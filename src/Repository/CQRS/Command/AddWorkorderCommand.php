@@ -4,7 +4,6 @@ namespace App\Repository\CQRS\Command;
 
 
 use App\Interfaces\MessageInterface;
-use phpDocumentor\Reflection\Types\Integer;
 
 class AddWorkorderCommand implements MessageInterface
 {
